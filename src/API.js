@@ -27,8 +27,9 @@ function API() {
   const [weahter, setweahter] = useState("");
   console.log("weahter", weahter);
 
-//   const [temp, settemp] = useState();
-
+  const [temp, settemp] = useState();
+  console.log(temp);
+  
   const style = {
     color: "white",
     fontStyle: "italic",
