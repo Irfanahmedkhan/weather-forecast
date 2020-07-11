@@ -1,0 +1,38 @@
+.navbar {
+    
+    
+    background-color: #001e3b;
+    padding: 5px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    color: white;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.navbar button {
+    margin: 10px;
+    background-color: #676869;
+    color: white;
+    border: none;
+}
+
+.navbar button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #e73d1f, #ff5031);
+}
+
+
+@media only screen and (max-width: 550px) {
+    .navbar button {
+        margin: 5px;
+        font-size: 10px;
+        background-color: #676869;
+        color: white;
+        border: none;
+    }
+}

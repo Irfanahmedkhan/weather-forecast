@@ -1,0 +1,126 @@
+{
+  "Headline": {
+    "EffectiveDate": "2020-07-10T19:00:00+05:00",
+    "EffectiveEpochDate": 1594389600,
+    "Severity": 4,
+    "Text": "Air quality will be unhealthy for sensitive groups Friday evening through late Tuesday night",
+    "Category": "air quality",
+    "EndDate": "2020-07-15T07:00:00+05:00",
+    "EndEpochDate": 1594778400,
+    "MobileLink": "http://m.accuweather.com/en/pk/karachi/261158/extended-weather-forecast/261158?lang=en-us",
+    "Link": "http://www.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?lang=en-us"
+  },
+  "DailyForecasts": [
+    {
+      "Date": "2020-07-10T07:00:00+05:00",
+      "EpochDate": 1594346400,
+      "Temperature": {
+        "Minimum": { "Value": 85.0, "Unit": "F", "UnitType": 18 },
+        "Maximum": { "Value": 96.0, "Unit": "F", "UnitType": 18 }
+      },
+      "Day": {
+        "Icon": 3,
+        "IconPhrase": "Partly sunny",
+        "HasPrecipitation": false
+      },
+      "Night": {
+        "Icon": 35,
+        "IconPhrase": "Partly cloudy",
+        "HasPrecipitation": false
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://m.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=1&lang=en-us",
+      "Link": "http://www.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=1&lang=en-us"
+    },
+    {
+      "Date": "2020-07-11T07:00:00+05:00",
+      "EpochDate": 1594432800,
+      "Temperature": {
+        "Minimum": { "Value": 85.0, "Unit": "F", "UnitType": 18 },
+        "Maximum": { "Value": 97.0, "Unit": "F", "UnitType": 18 }
+      },
+      "Day": {
+        "Icon": 14,
+        "IconPhrase": "Partly sunny w/ showers",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Night": {
+        "Icon": 37,
+        "IconPhrase": "Hazy moonlight",
+        "HasPrecipitation": false
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://m.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=2&lang=en-us",
+      "Link": "http://www.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=2&lang=en-us"
+    },
+    {
+      "Date": "2020-07-12T07:00:00+05:00",
+      "EpochDate": 1594519200,
+      "Temperature": {
+        "Minimum": { "Value": 86.0, "Unit": "F", "UnitType": 18 },
+        "Maximum": { "Value": 94.0, "Unit": "F", "UnitType": 18 }
+      },
+      "Day": {
+        "Icon": 14,
+        "IconPhrase": "Partly sunny w/ showers",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Night": {
+        "Icon": 37,
+        "IconPhrase": "Hazy moonlight",
+        "HasPrecipitation": false
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://m.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=3&lang=en-us",
+      "Link": "http://www.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=3&lang=en-us"
+    },
+    {
+      "Date": "2020-07-13T07:00:00+05:00",
+      "EpochDate": 1594605600,
+      "Temperature": {
+        "Minimum": { "Value": 86.0, "Unit": "F", "UnitType": 18 },
+        "Maximum": { "Value": 94.0, "Unit": "F", "UnitType": 18 }
+      },
+      "Day": {
+        "Icon": 3,
+        "IconPhrase": "Partly sunny",
+        "HasPrecipitation": true,
+        "PrecipitationType": "Rain",
+        "PrecipitationIntensity": "Light"
+      },
+      "Night": {
+        "Icon": 37,
+        "IconPhrase": "Hazy moonlight",
+        "HasPrecipitation": false
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://m.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=4&lang=en-us",
+      "Link": "http://www.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=4&lang=en-us"
+    },
+    {
+      "Date": "2020-07-14T07:00:00+05:00",
+      "EpochDate": 1594692000,
+      "Temperature": {
+        "Minimum": { "Value": 86.0, "Unit": "F", "UnitType": 18 },
+        "Maximum": { "Value": 95.0, "Unit": "F", "UnitType": 18 }
+      },
+      "Day": {
+        "Icon": 5,
+        "IconPhrase": "Hazy sunshine",
+        "HasPrecipitation": false
+      },
+      "Night": {
+        "Icon": 37,
+        "IconPhrase": "Hazy moonlight",
+        "HasPrecipitation": false
+      },
+      "Sources": ["AccuWeather"],
+      "MobileLink": "http://m.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=5&lang=en-us",
+      "Link": "http://www.accuweather.com/en/pk/karachi/261158/daily-weather-forecast/261158?day=5&lang=en-us"
+    }
+  ]
+}
