@@ -5,21 +5,22 @@ import "./App.css";
 import Navbar from "./Navbar";
 import Fav from "./Fav";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import WeatherContextprovider from './GlobalContext'
 
 function App() {
 
   return (
   <Router>
-  
-    <div className="App">
+      <WeatherContextprovider>
 
+    <div className="App">
       <Navbar />
         <Switch>
           <Route path='/' component={API} exact />
-        <Route path='/Fav/:id' component={Fav} />
+          <Route path='/Fav' component={Fav} />
         </Switch>
     </div>
-  
+  </WeatherContextprovider>
   </Router>
   
   );

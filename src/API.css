@@ -15,7 +15,7 @@ body {
 }
 
 .app {
-    background-image: url('./picture/cold-bg.jpg');
+    background-image: url('./picture/fav.jpeg');
     background-size: cover;
     background-position: bottom;
     transition: 0.4 ease;
@@ -31,9 +31,6 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.app.warm {
-    background-image: url('./picture/warm-bg.jpg');
-}
 
 main {
     min-height: 100vh;

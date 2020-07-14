@@ -3,24 +3,25 @@ import { WeatherContext} from './GlobalContext'
 
 import "./API.css";
 
+import uuid from "react-uuid";
 
 // import axios from 'axios'
 
-// import search from "./search.json";
-// import c from "./c.json";
-// import days from "./days.json";
-// console.log(search[0].EnglishName);
-// console.log(c);
-// console.log("days", days.DailyForecasts);
+import search from "./search.json";
+import c from "./c.json";
+import days from "./days.json";
+console.log(search[0].EnglishName);
+console.log(c);
+console.log("days", days.DailyForecasts);
 
 function API() {
-  const [cityname, setcityname] = useState("Tel Aviv");
-  console.log("cityname", cityname);
+  const [cityname, setcityname] = useState("");
+  // console.log("cityname", cityname);
 
-  const [country, setcountry] = useState(" IL");
+  const [country, setcountry] = useState("");
   // console.log("country", country);
 
-  const [key, setkey] = useState(215854);
+  const [key, setkey] = useState(296644);
   // console.log("key", key);
 
   const [weather, setweather] = useState("");
@@ -34,89 +35,15 @@ function API() {
 
   const { addWeather } = useContext(WeatherContext)
 
-  const [days, setdays] = useState({
-
-    "DailyForecasts": [
-      {
-        "Date": "",
-
-        "Temperature": {
-          "Minimum": { "Value": 0}
-        },
-        "Day": {
-          "IconPhrase": ""
-        }
-      },
-
-      {
-        "Date": "",
-        "Temperature": {
-          "Minimum": {
-            "Value": 0
-            }
-        },
-        "Day": {
-          "IconPhrase": ""
-        }
-      },
-
-      {
-        "Date": "",
-        "Temperature": {
-          "Minimum": {
-            "Value": 0
-            }
-        },
-        "Day": {
-          "IconPhrase": ""
-        }
-      },
-
-      {
-        "Date": "",
-        "Temperature": {
-          "Minimum": {
-            "Value": 0
-            }
-        },
-        "Day": {
-          "IconPhrase": ""
-        }
-      },
-
-      {
-        "Date": "",
-        "Temperature": {
-          "Minimum": {
-            "Value": 0
-            }
-        },
-        "Day": {
-          "IconPhrase": ""
-        }
-      },
-
-      {
-        "Date": "",
-        "Temperature": {
-          "Minimum": {
-            "Value": 0
-            }
-        },
-        "Day": {
-          "IconPhrase": ""
-        }
-      }
-    ]
-  }
-)
-
-  console.log('days',days);
+  
   // const style = {
   //   color: "white",
   //   fontStyle: "italic",
   // };
 
+
+
+  //`http://api.openweathermap.org/data/2.5/weather?q=${q}&APPID=1cdba29c6bf95dea1c4a63f27ca5423b`
 
   const data = async (q) => {
     const API = await fetch(
@@ -127,19 +54,6 @@ function API() {
   };
 
   const url = `http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=p8dcKfJ4gp26wWUqJyTiuAySfT63iurv`
-
-
-  const handler = (e) => {
-    e.preventDefault();
-    data(cityname)
-      .then((res) => {
-        setcountry(res[0].Country.ID);
-        setcityname(res[0].LocalizedName);
-        setkey(res[0].Key);
-      });
-  };
-
-
   
   useEffect(() => {
     const citydata = async (key) => {
@@ -151,27 +65,19 @@ function API() {
       setweather(resp[0].WeatherText);
       settemp(resp[0].Temperature.Metric.Value);
       setdate(resp[0].LocalObservationDateTime);
-
     });
   }, [key]);
 
-  const aa = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=p8dcKfJ4gp26wWUqJyTiuAySfT63iurv`
-
-  
-  useEffect(() => {
-
-    const dailydata = async (key) => {
-      const daysAPI = await fetch(aa);
-      const daysAPIJSON = await daysAPI.json();
-      return daysAPIJSON;
-    };
-    dailydata().then((daysAPI) => {
-      setdays(daysAPI);
-      console.log('effect', daysAPI);
+  const handler = (e) => {
+    e.preventDefault();
+    data(cityname).then((res) => {
+      setcountry(res[0].Country.EnglishName);
+      setcityname(res[0].EnglishName);
+      setkey(res[0].Key);
     });
-  }, [key]);
+  };
 
-
+ 
   function fav (){
 
     addWeather(cityname, weather, date, temp, country)
@@ -185,6 +91,7 @@ function API() {
           <input
             className="search-bar"
             type="search"
+            value={cityname}
             placeholder="Enter City Name"
             onChange={(e) => setcityname(e.target.value)}
           />
@@ -195,15 +102,15 @@ function API() {
 
         </div>
 
-        <div className="currentweather" >
+        <div className="currentweather" key={uuid()}>
           <div className="location-box">
-            <div className="location">{cityname},{country} </div>
-            <div className="date">{new Date(date).toDateString()}</div>
+            <div className="location">{search[0].EnglishName} </div>
+            <div className="date">{new Date(c[0].LocalObservationDateTime).toDateString()}</div>
           </div>
 
           <div className="weather-box">
-            <div className="temp"> {temp} F </div>
-            <div className="weather"> {weather} </div>
+            <div className="temp"> {c[0].Temperature.Imperial.Value} F </div>
+            <div className="weather"> {c[0].WeatherText} </div>
           </div>
           <button type='search' className="fav" onClick={fav}> Add to Fav  </button>
           
@@ -213,7 +120,7 @@ function API() {
         <div className="forecast">
           <div className="dayone">
             <div className="forecast-date">
-              {new Date(days.DailyForecasts[0].Date).toDateString()} 
+              {new Date(days.DailyForecasts[0].Date).toDateString()} {cityname}
             </div>
             <div className="weather-box">
               <div className="forecast-temp">
@@ -227,7 +134,7 @@ function API() {
 
           <div className="daytwo">
             <div className="forecast-date">
-              {new Date(days.DailyForecasts[1].Date).toDateString()} 
+              {new Date(days.DailyForecasts[1].Date).toDateString()} {cityname}
             </div>
             <div className="weather-box">
               <div className="forecast-temp">
@@ -241,7 +148,7 @@ function API() {
 
           <div className="daythree">
             <div className="forecast-date">
-              {new Date(days.DailyForecasts[2].Date).toDateString()} 
+              {new Date(days.DailyForecasts[2].Date).toDateString()} {cityname}
             </div>
             <div className="weather-box">
               <div className="forecast-temp">
@@ -255,7 +162,7 @@ function API() {
 
           <div className="dayfour">
             <div className="forecast-date">
-              {new Date(days.DailyForecasts[3].Date).toDateString()} 
+              {new Date(days.DailyForecasts[3].Date).toDateString()} {cityname}
             </div>
             <div className="weather-box">
               <div className="forecast-temp">
@@ -269,7 +176,7 @@ function API() {
 
           <div className="dayfive">
             <div className="forecast-date">
-              {new Date(days.DailyForecasts[4].Date).toDateString()} 
+              {new Date(days.DailyForecasts[4].Date).toDateString()} {cityname}{" "}
             </div>
             <div className="weather-box">
               <div className="forecast-temp">
@@ -279,7 +186,7 @@ function API() {
                 {days.DailyForecasts[4].Day.IconPhrase}
               </div>
             </div>
-          </div> 
+          </div>
         </div>
       </main>
     </div>
@@ -287,3 +194,37 @@ function API() {
 }
 
 export default API;
+
+// < div className = 'forecast' >
+//     <div className='dayone'><h1>city name : {cityname}</h1>
+//         <h1>city country : {country}</h1>
+//         <h1>city key : {key}</h1>
+//         <h1>city Temperature is  : {temp}</h1>
+//         <h1>city weather is : {weahter}</h1>
+//     </div>
+//     <div className='daytwo'><h1>city name : {cityname}</h1>
+//         <h1>city country : {country}</h1>
+//         <h1>city key : {key}</h1>
+//         <h1>city Temperature is  : {temp}</h1>
+//         <h1>city weather is : {weahter}</h1>
+//     </div>
+//     <div className='daythree'><h1>city name : {cityname}</h1>
+//         <h1>city country : {country}</h1>
+//         <h1>city key : {key}</h1>
+//         <h1>city Temperature is  : {temp}</h1>
+//         <h1>city weather is : {weahter}</h1>
+//     </div>
+//     <div className='dayfour'><h1>city name : {cityname}</h1>
+//         <h1>city country : {country}</h1>
+//         <h1>city key : {key}</h1>
+//         <h1>city Temperature is  : {temp}</h1>
+//         <h1>city weather is : {weahter}</h1>
+//     </div>
+//     <div className='dayfive'><h1>city name : {cityname}</h1>
+//         <h1>city country : {country}</h1>
+//         <h1>city key : {key}</h1>
+//         <h1>city Temperature is  : {temp}</h1>
+//         <h1>city weather is : {weahter}</h1>
+//     </div>
+
+//         </div >
