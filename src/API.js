@@ -153,7 +153,7 @@ function API() {
       setdate(resp[0].LocalObservationDateTime);
 
     });
-  }, [key]);
+  }, [key, url]);
 
   const aa = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=p8dcKfJ4gp26wWUqJyTiuAySfT63iurv`
 
@@ -167,9 +167,8 @@ function API() {
     };
     dailydata().then((daysAPI) => {
       setdays(daysAPI);
-      console.log('effect', daysAPI);
     });
-  }, [key]);
+  }, [key, aa]);
 
 
   function fav (){
