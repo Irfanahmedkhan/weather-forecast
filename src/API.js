@@ -4,32 +4,17 @@ import { WeatherContext} from './GlobalContext'
 import "./API.css";
 
 
-// import axios from 'axios'
-
-// import search from "./search.json";
-// import c from "./c.json";
-// import days from "./days.json";
-// console.log(search[0].EnglishName);
-// console.log(c);
-// console.log("days", days.DailyForecasts);
-
 function API() {
   const [cityname, setcityname] = useState("Tel Aviv");
-  console.log("cityname", cityname);
 
   const [country, setcountry] = useState(" IL");
-  // console.log("country", country);
 
   const [key, setkey] = useState(215854);
-  // console.log("key", key);
 
   const [weather, setweather] = useState("");
-  // console.log("weahter", weahter);
 
   const [temp, settemp] = useState();
   
-  // console.log(temp);
-
   const [date, setdate] = useState();
 
   const { addWeather } = useContext(WeatherContext)
@@ -111,22 +96,16 @@ function API() {
   }
 )
 
-  console.log('days',days);
-  // const style = {
-  //   color: "white",
-  //   fontStyle: "italic",
-  // };
-
 
   const data = async (q) => {
     const API = await fetch(
-       `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=p8dcKfJ4gp26wWUqJyTiuAySfT63iurv&q=${q}`
+       `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=g7j9OYDVxNrOt6ii61nlMvhG0vCegCuM&q=${q}`
     );
     const resJSON = await API.json();
     return resJSON;
   };
 
-  const url = `http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=p8dcKfJ4gp26wWUqJyTiuAySfT63iurv`
+  const url = `http://dataservice.accuweather.com/currentconditions/v1/${key}?apikey=g7j9OYDVxNrOt6ii61nlMvhG0vCegCuM`
 
 
   const handler = (e) => {
@@ -155,7 +134,7 @@ function API() {
     });
   }, [key, url]);
 
-  const aa = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=p8dcKfJ4gp26wWUqJyTiuAySfT63iurv`
+  const aa = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=g7j9OYDVxNrOt6ii61nlMvhG0vCegCuM`
 
   
   useEffect(() => {
@@ -196,7 +175,7 @@ function API() {
 
         <div className="currentweather" >
           <div className="location-box">
-            <div className="location">{cityname},{country} </div>
+            <div className="location">{cityname} </div>
             <div className="date">{new Date(date).toDateString()}</div>
           </div>
 
@@ -207,10 +186,9 @@ function API() {
           <button type='search' className="fav" onClick={fav}> Add to Fav  </button>
           
         </div>
-
-
         <div className="forecast">
-          <div className="dayone">
+          
+          <div className="days">
             <div className="forecast-date">
               {new Date(days.DailyForecasts[0].Date).toDateString()} 
             </div>
@@ -224,7 +202,7 @@ function API() {
             </div>
           </div>
 
-          <div className="daytwo">
+          <div className="days">
             <div className="forecast-date">
               {new Date(days.DailyForecasts[1].Date).toDateString()} 
             </div>
@@ -238,7 +216,7 @@ function API() {
             </div>
           </div>
 
-          <div className="daythree">
+          <div className="days">
             <div className="forecast-date">
               {new Date(days.DailyForecasts[2].Date).toDateString()} 
             </div>
@@ -252,7 +230,7 @@ function API() {
             </div>
           </div>
 
-          <div className="dayfour">
+          <div className="days">
             <div className="forecast-date">
               {new Date(days.DailyForecasts[3].Date).toDateString()} 
             </div>
@@ -266,7 +244,7 @@ function API() {
             </div>
           </div>
 
-          <div className="dayfive">
+          <div className="days">
             <div className="forecast-date">
               {new Date(days.DailyForecasts[4].Date).toDateString()} 
             </div>

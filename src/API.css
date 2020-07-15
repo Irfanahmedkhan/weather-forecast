@@ -12,28 +12,24 @@
 
 body {
     font-family: 'montseratt', sans-serif;
-}
-
-.app {
     background-image: url('./picture/fav.jpeg');
     background-size: cover;
-    background-position: bottom;
-    transition: 0.4 ease;
+    background-attachment: fixed;
 }
 
 .currentweather {
-    border: 2px solid black;
     display: inline-block;
     margin: 20px;
     border: 2px solid rgb(85, 85, 85);
     padding: 15px;
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.2);
+    width: 300px;
+    box-sizing: border-box;
 }
 
 main {
     min-height: 100vh;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
     padding: 15px;
 }
 
@@ -51,12 +47,10 @@ main {
     text-align: center;
 }
 
-
-    button:hover {
-        transform: scale(1.05);
-        background-color: rgb(54, 118, 190);
-    }
-
+button:hover {
+    transform: scale(1.05);
+    background-color: rgb(54, 118, 190);
+}
 
 .fav {
     margin-top: 10px;
@@ -139,17 +133,13 @@ main {
     text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
 
-.forecast {
-    background-color:
-}
-
-.dayone, .daytwo, .daythree, .dayfour, .dayfive, .daysix {
+.days {
     width: 100%;
     margin: 20px;
     border: 2px solid rgb(85, 85, 85);
     padding: 15px;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(27, 27, 27, 0.3);
 }
 
 .forecast-temp {
@@ -182,13 +172,23 @@ main {
     font-weight: 800;
     font-style: italic;
     text-align: center;
-    text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
+    text-shadow: 2px 2px rgba(69, 69, 129, 0.5);
 }
 
 @media only screen and (max-width: 550px) {
     .forecast {
         display: flex;
         flex-direction: column;
-        margin: 10px;
+        width: 250px;
+        justify-content: center;
+        align-items: center;
+    }
+    .days {
+        width: 100%;
+        margin: 20px;
+        border: 2px solid rgb(85, 85, 85);
+        padding: 15px;
+        border-radius: 20px;
+        background-color: rgba(27, 27, 27, 0.3);
     }
 }
